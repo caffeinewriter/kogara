@@ -12,6 +12,7 @@ import (
 
 type Configuration struct {
   Redis RedisConfig `json:"redis"`
+  Bind string `json:"bind"`
 }
 
 type RedisConfig struct {
@@ -123,5 +124,5 @@ func main() {
     }
   })
   
-  r.Run(":8081")
+  r.Run(config.Bind)
 }
