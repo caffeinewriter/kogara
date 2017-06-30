@@ -1,0 +1,67 @@
+memo = "192d313b36553345b94129d14fbcc079564c2a0aaec8f023a108cdbdc62ff930"
+
+[[projects]]
+  name = "github.com/gin-gonic/gin"
+  packages = [".","binding","render"]
+  revision = "e2212d40c62a98b388a5eb48ecbdcf88534688ba"
+  version = "v1.1.4"
+
+[[projects]]
+  name = "github.com/go-redis/redis"
+  packages = [".","internal","internal/consistenthash","internal/hashtag","internal/pool","internal/proto"]
+  revision = "b52814fa179a2f8e7f13d497c6ab40aba58ad773"
+  version = "v6.5.1"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/golang/protobuf"
+  packages = ["proto"]
+  revision = "6a1fa9404c0aebf36c879bc50152edcc953910d2"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/manucorporat/sse"
+  packages = ["."]
+  revision = "ee05b128a739a0fb76c7ebd3ae4810c1de808d6d"
+
+[[projects]]
+  name = "github.com/mattn/go-isatty"
+  packages = ["."]
+  revision = "fc9e8d8ef48496124e79ae0df75490096eccf6fe"
+  version = "v0.0.2"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/pilu/go-base62"
+  packages = ["."]
+  revision = "d5f2747573ce21beebdd18dfafb88093713aa45e"
+
+[[projects]]
+  branch = "master"
+  name = "go4.org"
+  packages = ["syncutil"]
+  revision = "034d17a462f7b2dcd1a4a73553ec5357ff6e6c6e"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/net"
+  packages = ["context"]
+  revision = "1f9224279e98554b6a6432d4dd998a739f8b2b7c"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/sys"
+  packages = ["unix"]
+  revision = "90796e5a05ce440b41c768bd9af257005e470461"
+
+[[projects]]
+  name = "gopkg.in/go-playground/validator.v8"
+  packages = ["."]
+  revision = "5f57d2222ad794d0dffb07e664ea05e2ee07d60c"
+  version = "v8.18.1"
+
+[[projects]]
+  branch = "v2"
+  name = "gopkg.in/yaml.v2"
+  packages = ["."]
+  revision = "cd8b52f8269e0feb286dfeef29f8fe4d5b397e0b"
