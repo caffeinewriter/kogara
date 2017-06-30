@@ -2,19 +2,45 @@ package main
 
 import (
   "fmt"
+  "io/ioutil"
+  "encoding/json"
   
   "github.com/gin-gonic/gin"
   "github.com/go-redis/redis"
   "github.com/pilu/go-base62"
 )
 
+type Configuration struct {
+  Redis RedisConfig `json:"redis"`
+}
+
+type RedisConfig struct {
+  Addr string `json:"addr"`
+  Password string `json:"password"`
+  DB int `json:"db"`
+}
+
+func LoadConfig() (config Configuration) {
+  file, err := ioutil.ReadFile("./config.json")
+  if err != nil {
+    panic("Unable to read config file.")
+  }
+  var cfg Configuration
+  err = json.Unmarshal(file, &cfg)
+  if err != nil {
+    panic("Unable to parse config file.")
+  }
+  return cfg
+}
+
 func main() {
+  config := LoadConfig()
   r := gin.Default()
-  
+
   red := redis.NewClient(&redis.Options{
-    Addr:     "localhost:6379",
-    Password: "",
-    DB:       0,
+    Addr:     config.Redis.Addr,
+    Password: config.Redis.Password,
+    DB:       config.Redis.DB,
   })
   
   _, err := red.Ping().Result()

@@ -15,3 +15,6 @@
 
 # dep dependencies directory
 vendor/*
+
+# populated config files
+config.json
