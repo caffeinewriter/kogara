@@ -24,5 +24,5 @@ This is a hobby project designed to increase my own familiarity with Go, Redis, 
 
 * At present solely generates sequential base62 link IDs.
 * At present has no way to administer links beyond directly managing them in Redis.
-* Does not confirm link existence, or even structure, so you may end up with some weird results.
-* May be vulnerable to XSS, but most browsers reject execution of JavaScript unless it's directly entered by the user into the address bar. 
+* ~~Does not confirm link existence, or even structure, so you may end up with some weird results.~~
+* ~~May be vulnerable to XSS, but most browsers reject execution of JavaScript unless it's directly entered by the user into the address bar.~~
