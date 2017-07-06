@@ -4,6 +4,7 @@ import (
   "fmt"
   "io/ioutil"
   "encoding/json"
+  "net/url"
   
   "github.com/gin-gonic/gin"
   "github.com/go-redis/redis"
@@ -69,10 +70,23 @@ func main() {
   r.POST("/", func (ctx *gin.Context) {
     if ctx.PostForm("url") == "" {
       ctx.String(400, "URL cannot be empty.")
+      return
+    }
+    link, err := url.Parse(ctx.PostForm("url"))
+    if err != nil {
+      ctx.String(500, "Something went wrong parsing the URL.")
+      return
+    } else if (link.Scheme != "http" && link.Scheme != "https") {
+      ctx.String(400, "This URL shortener currently only supports http and https links.")
+      return
+    } else if link.Host == "" {
+      ctx.String(400, "No host was found")
+      return
     }
     count, err := red.Incr("kogara:counter").Result()
     if err != nil {
       ctx.String(500, "Unable to create link.")
+      return
     }
     id := base62.Encode(int(count));
     _, err = red.Set("kogara:links:" + id, ctx.PostForm("url"), 0).Result()
